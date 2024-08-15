@@ -1,10 +1,10 @@
 import Link from "next/link";
 
-function HomePage() {
+function ContactPage() {
   return (
     <div>
-      <h1 className="text-7xl">Home Page</h1>
-      <ul>
+      <h1 className="text-7xl">Contact Us</h1>
+      <ul className='px-2 py-2'>
         <li>
           <Link href={"/"} className="text-xl text-blue-500 inline-block mt-8">
             Home
@@ -27,8 +27,9 @@ function HomePage() {
           </Link>
         </li>
       </ul>
+      <h2 className="text-3xl mt-4">Something else</h2>
     </div>
   );
 }
 
-export default HomePage;
+export default ContactPage;
