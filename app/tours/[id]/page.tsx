@@ -15,22 +15,19 @@ const fetchTour = async (id: string) => {
     const response = await fetch(url);
     const data: Tour[] = await response.json();
     const tour = data.find((tour) => tour.id === id);
+    // console.log(tour);
     return tour;
   } catch (error) {
-    return {
-      id: "",
-      name: "This Tour does not exist",
-      info: "Something went wrong",
-      price: "",
-      image: "",
-    };
+    return false;
   }
 };
 
 export default async function TourPage({ params }: { params: { id: string } }) {
   const { id } = params;
   const tour = await fetchTour(id);
-
+  if (!tour) {
+    return <h1>Something went wrong, try again!</h1>;
+  }
   return (
     <div>
       <h1 className="text-4xl">{tour?.name || "This tour does not exits"}</h1>
@@ -46,7 +43,17 @@ export default async function TourPage({ params }: { params: { id: string } }) {
           />
           <h3>Local Image</h3>
         </div>
-        <div></div>
+        <div>
+          <Image
+            src={tour.image}
+            alt="maps"
+            className="w-48 h-48 object-cover rounded"
+            width={192}
+            height={192}
+            priority
+          />
+          <h3>Remote Image</h3>
+        </div>
       </section>
     </div>
   );
