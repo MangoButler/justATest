@@ -1,7 +1,19 @@
 import Navbar from "@/components/Navbar";
 import "./globals.css";
+import { Inter } from "next/font/google";
+import type { Metadata } from "next";
 
-import React from "react";
+const inter = Inter({ subsets: ["latin"] });
+// const inconsolata = Inconsolata({ subsets: ["latin"] });
+// const roboto = Roboto({ subsets: ["latin"], weight: ["400"] });
+// needs import...
+
+export const metadata: Metadata = {
+  title: "Just a demo",
+  description:
+    "A next.js project that is just a small demo of the next.js features",
+  keywords: "Tailwind CSS, Next.js, TypeScript",
+};
 
 export default function RootLayout({
   children,
@@ -10,9 +22,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className={inter.className}>
         <Navbar />
-        {children}
+        <main className="max-w-3xl mx-auto py-10">{children}</main>
       </body>
     </html>
   );
