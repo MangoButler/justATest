@@ -11,6 +11,7 @@ type Tour = {
 };
 
 const fetchTour = async (id: string) => {
+  console.log('##############Building the Page########################');
   try {
     const response = await fetch(url);
     const data: Tour[] = await response.json();

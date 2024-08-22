@@ -1,7 +1,7 @@
 import { deleteUser, removeUser } from "@/utils/actions";
 
 export default function DeleteButton({ id }: { id: string }) {
-  const removeUserWithId = removeUser.bind(null, id);
+  const removeUserWithId = removeUser.bind(null, id); // to make the bind function easier just create a helper function
   return (
     <form action={removeUserWithId}>
       <input type="hidden" name="name" value={"shakeAndBake"} />
